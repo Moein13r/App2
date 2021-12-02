@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App2.Views.Popup;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +10,7 @@ namespace App2
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            MainPage = new Popup1();
         }
 
         protected override void OnStart()

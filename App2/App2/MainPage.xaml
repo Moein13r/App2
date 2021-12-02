@@ -4,44 +4,65 @@
              x:Class="App2.MainPage">
     <ContentPage.Content>
         <Grid BackgroundColor="DodgerBlue" x:Name="ContentGrid">
+            <Grid.Background>
+                <LinearGradientBrush>
+                    <GradientStop Offset="0" Color="DodgerBlue"/>
+                    <GradientStop Offset="0.3" Color="#4cc9f0"/>
+                    <GradientStop Offset="0.6" Color="#4ea8de"/>
+                </LinearGradientBrush>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Frame Grid.Row="0" Margin="100,20" CornerRadius="50" BackgroundColor="PaleVioletRed">
+            <Frame Grid.Row="0" Margin="100,20" CornerRadius="50" BackgroundColor="#95d5b2">
                 <Image x:Name="Arrow"  HorizontalOptions="Center" Source="Arrow.png" VerticalOptions="Center"/>
             </Frame>
-            <Grid Grid.Row="1" Margin="30,0">
-                <Image x:Name="p00" BackgroundColor="PaleVioletRed" Grid.Row="0" Grid.Column="0"/>
-                <Image x:Name="p01" BackgroundColor="PaleVioletRed" Grid.Row="0" Grid.Column="1"/>
-                <Image x:Name="p02" BackgroundColor="PaleVioletRed" Grid.Row="0" Grid.Column="2"/>
-                <Image x:Name="p03" BackgroundColor="PaleVioletRed" Grid.Row="0" Grid.Column="3"/>
-                <Image x:Name="p04" BackgroundColor="PaleVioletRed" Grid.Row="0" Grid.Column="4"/>
-                <Image x:Name="p10" BackgroundColor="PaleVioletRed" Grid.Row="1" Grid.Column="0"/>
-                <Image x:Name="p11" BackgroundColor="PaleVioletRed" Grid.Row="1" Grid.Column="1"/>
-                <Image x:Name="p12" BackgroundColor="PaleVioletRed" Grid.Row="1" Grid.Column="2"/>
-                <Image x:Name="p13" BackgroundColor="PaleVioletRed" Grid.Row="1" Grid.Column="3"/>
-                <Image x:Name="p14" BackgroundColor="PaleVioletRed" Grid.Row="1" Grid.Column="4"/>
-                <Image x:Name="p20" BackgroundColor="PaleVioletRed" Grid.Row="2" Grid.Column="0"/>
-                <Image x:Name="p21" BackgroundColor="PaleVioletRed" Grid.Row="2" Grid.Column="1"/>
-                <Image x:Name="p22" BackgroundColor="PaleVioletRed" Grid.Row="2" Grid.Column="2" Source="Butterfly.png"/>
-                <Image x:Name="p23" BackgroundColor="PaleVioletRed" Grid.Row="2" Grid.Column="3"/>
-                <Image x:Name="p24" BackgroundColor="PaleVioletRed" Grid.Row="2" Grid.Column="4"/>
-                <Image x:Name="p30" BackgroundColor="PaleVioletRed" Grid.Row="3" Grid.Column="0"/>
-                <Image x:Name="p31" BackgroundColor="PaleVioletRed" Grid.Row="3" Grid.Column="1"/>
-                <Image x:Name="p32" BackgroundColor="PaleVioletRed" Grid.Row="3" Grid.Column="2"/>
-                <Image x:Name="p33" BackgroundColor="PaleVioletRed" Grid.Row="3" Grid.Column="3"/>
-                <Image x:Name="p34" BackgroundColor="PaleVioletRed" Grid.Row="3" Grid.Column="4"/>
-                <Image x:Name="p40" BackgroundColor="PaleVioletRed" Grid.Row="4" Grid.Column="0"/>
-                <Image x:Name="p41" BackgroundColor="PaleVioletRed" Grid.Row="4" Grid.Column="1"/>
-                <Image x:Name="p42" BackgroundColor="PaleVioletRed" Grid.Row="4" Grid.Column="2"/>
-                <Image x:Name="p43" BackgroundColor="PaleVioletRed" Grid.Row="4" Grid.Column="3"/>
-                <Image x:Name="p44" BackgroundColor="PaleVioletRed" Grid.Row="4" Grid.Column="4"/>
+            <Grid Grid.Row="1" Margin="30,0" x:Name="board">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ImageButton x:Name="p00" BackgroundColor="White" Grid.Row="0" Grid.Column="0" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p01" BackgroundColor="White" Grid.Row="0" Grid.Column="1" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p02" BackgroundColor="white" Grid.Row="0" Grid.Column="2" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p03" BackgroundColor="white" Grid.Row="0" Grid.Column="3" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p04" BackgroundColor="white" Grid.Row="0" Grid.Column="4" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p10" BackgroundColor="white" Grid.Row="1" Grid.Column="0" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p11" BackgroundColor="white" Grid.Row="1" Grid.Column="1" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p12" BackgroundColor="white" Grid.Row="1" Grid.Column="2" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p13" BackgroundColor="white" Grid.Row="1" Grid.Column="3" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p14" BackgroundColor="white" Grid.Row="1" Grid.Column="4" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p20" BackgroundColor="White" Grid.Row="2" Grid.Column="0" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p21" BackgroundColor="White" Grid.Row="2" Grid.Column="1" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p22" BackgroundColor="White" Grid.Row="2" Grid.Column="2" Clicked="p00_Clicked" Source="Butterfly.png"/>
+                <ImageButton x:Name="p23" BackgroundColor="White" Grid.Row="2" Grid.Column="3" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p24" BackgroundColor="White" Grid.Row="2" Grid.Column="4" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p30" BackgroundColor="white" Grid.Row="3" Grid.Column="0" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p31" BackgroundColor="white" Grid.Row="3" Grid.Column="1" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p32" BackgroundColor="white" Grid.Row="3" Grid.Column="2" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p33" BackgroundColor="white" Grid.Row="3" Grid.Column="3" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p34" BackgroundColor="white" Grid.Row="3" Grid.Column="4" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p40" BackgroundColor="white" Grid.Row="4" Grid.Column="0" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p41" BackgroundColor="white" Grid.Row="4" Grid.Column="1" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p42" BackgroundColor="white" Grid.Row="4" Grid.Column="2" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p43" BackgroundColor="white" Grid.Row="4" Grid.Column="3" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p44" BackgroundColor="white" Grid.Row="4" Grid.Column="4" Clicked="p00_Clicked" Source=""/>
             </Grid>
-            <Label x:Name="timerlabel" Grid.Row="2" FontSize="20" TextColor="LightCyan" HorizontalOptions="Center" Text="Tap Play To Start" VerticalOptions="Center" FontAttributes="Bold" />
-            <Button x:Name="play_btn" Clicked="Button_Clicked" Text="Play" Grid.Row="3" VerticalOptions="End" Margin="20,0,20,50" BackgroundColor="PaleVioletRed" HeightRequest="70" FontAttributes="Bold" CornerRadius="10" FontSize="25" TextColor="White" />
+            <Label x:Name="timerlabel" Grid.Row="2" FontSize="20" TextColor="LightCyan" HorizontalOptions="Center" Text="برای شروع بازی روی دکمه شروع بزن " VerticalOptions="Center" FontAttributes="Bold" />
+            <Button x:Name="play_btn" Clicked="Button_Clicked" Text="شروع" Grid.Row="3" VerticalOptions="End" Margin="20,0,20,50" BackgroundColor="#95d5b2" HeightRequest="70" FontAttributes="Bold" CornerRadius="10" FontSize="25" TextColor="White" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
