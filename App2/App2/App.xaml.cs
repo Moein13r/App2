@@ -10,7 +10,7 @@ namespace App2
         public App()
         {
             InitializeComponent();
-            MainPage = new Popup1();
+            MainPage = new Page1();
         }
 
         protected override void OnStart()

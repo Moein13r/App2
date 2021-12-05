@@ -15,6 +15,7 @@
                 <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Frame Grid.Row="0" Margin="100,20" CornerRadius="50" BackgroundColor="#95d5b2">
@@ -62,7 +63,8 @@
                 <ImageButton x:Name="p44" BackgroundColor="white" Grid.Row="4" Grid.Column="4" Clicked="p00_Clicked" Source=""/>
             </Grid>
             <Label x:Name="timerlabel" Grid.Row="2" FontSize="20" TextColor="LightCyan" HorizontalOptions="Center" Text="برای شروع بازی روی دکمه شروع بزن " VerticalOptions="Center" FontAttributes="Bold" />
-            <Button x:Name="play_btn" Clicked="Button_Clicked" Text="شروع" Grid.Row="3" VerticalOptions="End" Margin="20,0,20,50" BackgroundColor="#95d5b2" HeightRequest="70" FontAttributes="Bold" CornerRadius="10" FontSize="25" TextColor="White" />
+            <Label x:Name="stage" Grid.Row="3" FontSize="20" TextColor="LightCyan" HorizontalOptions="Center" Text="" VerticalOptions="Center" FontAttributes="Bold" />
+            <Button x:Name="play_btn" Clicked="Button_Clicked" Text="شروع" Grid.Row="4" VerticalOptions="End" Margin="20,0,20,50" BackgroundColor="#95d5b2" HeightRequest="70" FontAttributes="Bold" CornerRadius="10" FontSize="25" TextColor="White" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

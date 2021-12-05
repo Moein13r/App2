@@ -20,6 +20,7 @@ namespace App2
         public MainPage(int _counter,int _delay)
         {
             InitializeComponent();
+            stage.Text ="stage" + Game.stage.ToString();
             counter = _counter;
             Delay = _delay;
             board.IsEnabled = false;
@@ -52,14 +53,15 @@ namespace App2
             {
                 // dir is move direction
                 string dir = gameplay.Arrows1[f.Next(0, 7)];
+                Arrow.Source = "";
+                await Task.Delay(200);
                 ArrowCoordinate(dir);
                 move(dir);
                 await Task.Delay(Delay);
             }
             p22.Source = "";
-            await Task.Delay(3000);
             play_btn.IsVisible = true;
-            timerlabel.Text = "برای شروع روی دکمه شروع بزن";
+            timerlabel.Text = "انتخاب کن";
             gameplay.Board[gameplay.indexX, gameplay.indexY] = 1;
             ButterFlyMove("");
             board.IsEnabled = true;
@@ -247,17 +249,26 @@ namespace App2
         }
         private async void p00_Clicked(object sender, EventArgs e)
         {
-            ImageButton n= new ImageButton();
-            n = (ImageButton)sender;
-            int index = (gameplay.indexX +1)*( gameplay.indexY+1) -1;
+            //ImageButton n= new ImageButton();
+            
+            var n = sender as ImageButton;
+            int index = gameplay.indexX+(gameplay.indexY*5);
             var f = board.Children[index];
-            if (n.Id==f.Id)
+            if (n.Id == f.Id)
             {
-               await PopupNavigation.Instance.PushAsync(new Popup1());
+                n.BackgroundColor = new Color(10, 250, 10);
+                await PopupNavigation.Instance.PushAsync(new Popup1());
+                n.BackgroundColor = new Color(0, 250, 0);
             }
             else
-               await DisplayAlert("اشتباه!", "دوباره سعی کن", "برگشت");
+            {
+                n.BackgroundColor = new Color(100, 0, 0);
+                await DisplayAlert("اشتباه!", "دوباره سعی کن", "برگشت");
+                Game.stage = 1;
+                await Navigation.PopAsync();
+            }
             ButterFlyMove("Butterfly.png");
+
         }
     }
 }

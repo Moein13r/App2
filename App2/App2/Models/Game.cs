@@ -12,5 +12,9 @@ namespace App2.Models
         public int[,] Board = new int[5, 5];
         public int indexX = 2;
         public int indexY = 2;
+        public static int stage = 1;
+        public int score = 0;
+        public static int count { get; set; }
+        public static int speed { set; get; }
     }
 }
