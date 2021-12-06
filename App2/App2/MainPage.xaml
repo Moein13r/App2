@@ -36,7 +36,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <ImageButton x:Name="p00" BackgroundColor="White" Grid.Row="0" Grid.Column="0" Clicked="p00_Clicked" Source=""/>
+                <!--<ImageButton x:Name="p00" BackgroundColor="White" Grid.Row="0" Grid.Column="0" Clicked="p00_Clicked" Source=""/>
                 <ImageButton x:Name="p01" BackgroundColor="White" Grid.Row="0" Grid.Column="1" Clicked="p00_Clicked" Source=""/>
                 <ImageButton x:Name="p02" BackgroundColor="white" Grid.Row="0" Grid.Column="2" Clicked="p00_Clicked" Source=""/>
                 <ImageButton x:Name="p03" BackgroundColor="white" Grid.Row="0" Grid.Column="3" Clicked="p00_Clicked" Source=""/>
@@ -60,7 +60,7 @@
                 <ImageButton x:Name="p41" BackgroundColor="white" Grid.Row="4" Grid.Column="1" Clicked="p00_Clicked" Source=""/>
                 <ImageButton x:Name="p42" BackgroundColor="white" Grid.Row="4" Grid.Column="2" Clicked="p00_Clicked" Source=""/>
                 <ImageButton x:Name="p43" BackgroundColor="white" Grid.Row="4" Grid.Column="3" Clicked="p00_Clicked" Source=""/>
-                <ImageButton x:Name="p44" BackgroundColor="white" Grid.Row="4" Grid.Column="4" Clicked="p00_Clicked" Source=""/>
+                <ImageButton x:Name="p44" BackgroundColor="white" Grid.Row="4" Grid.Column="4" Clicked="p00_Clicked" Source=""/>-->
             </Grid>
             <Label x:Name="timerlabel" Grid.Row="2" FontSize="20" TextColor="LightCyan" HorizontalOptions="Center" Text="برای شروع بازی روی دکمه شروع بزن " VerticalOptions="Center" FontAttributes="Bold" />
             <Label x:Name="stage" Grid.Row="3" FontSize="20" TextColor="LightCyan" HorizontalOptions="Center" Text="" VerticalOptions="Center" FontAttributes="Bold" />

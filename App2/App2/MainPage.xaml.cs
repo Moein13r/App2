@@ -9,18 +9,22 @@ using Xamarin.Forms;
 using App2.Models;
 using Rg.Plugins.Popup.Services;
 using App2.Views.Popup;
+using App2.View.Popup;
 
 namespace App2
 {
     public partial class MainPage : ContentPage
     {
+        ImageButton[,] cells;
         Game gameplay;
         int Delay;
         int counter;
-        public MainPage(int _counter,int _delay)
+        public MainPage(int _counter, int _delay)
         {
+            for(int i=0;i<4;i++)
+                gameplay.Board.Add(new int[5]);
             InitializeComponent();
-            stage.Text ="stage" + Game.stage.ToString();
+            Create_Board();
             counter = _counter;
             Delay = _delay;
             board.IsEnabled = false;
@@ -28,7 +32,6 @@ namespace App2
         private async void Button_Clicked(object sender, EventArgs e)
         {
             Arrow.Source = "";
-            p22.Source = "Butterfly.png";
             await timer();
         }
         //timer Is Game Timer Before start
@@ -40,9 +43,8 @@ namespace App2
             await Task.Delay(1000);
             timerlabel.Text = "1";
             await Task.Delay(1000);
-            timerlabel.Text="شروع";
+            timerlabel.Text = "شروع";
             play_btn.IsVisible = false;
-
             await Play();
         }
         public async Task Play()
@@ -59,11 +61,10 @@ namespace App2
                 move(dir);
                 await Task.Delay(Delay);
             }
-            p22.Source = "";
+            cells[2, 2].Source = "";
             play_btn.IsVisible = true;
             timerlabel.Text = "انتخاب کن";
-            gameplay.Board[gameplay.indexX, gameplay.indexY] = 1;
-            ButterFlyMove("");
+            gameplay.stage++;
             board.IsEnabled = true;
         }
         //move function is for to move form the current position to target position mathematic
@@ -128,147 +129,60 @@ namespace App2
             Arrow.Source = "Arrow.png";
             Arrow.Rotation = gameplay.Arrows[dir];
         }
+
         // ButterflyMove is for move butterfly from current position to the target position
-        public void ButterFlyMove(string source)
-        {
-            if (gameplay.indexY == 0)
-            {
-                if (gameplay.indexX == 0)
-                {
-                    p00.Source = source;
-                }
-                else if (gameplay.indexX == 1)
-                {
-                    p01.Source = source;
-                }
-                else if (gameplay.indexX == 2)
-                {
-                    p02.Source = source;
-                }
-                else if (gameplay.indexX == 3)
-                {
-                    p03.Source = source;
-                }
-                else
-                {
-                    p04.Source = source;
-                }
-            }
-            else if (gameplay.indexY == 1)
-            {
-                if (gameplay.indexX == 0)
-                {
-                    p10.Source = source;
-                }
-                else if (gameplay.indexX == 1)
-                {
-                    p11.Source = source;
-                }
-                else if (gameplay.indexX == 2)
-                {
-                    p12.Source = source;
-                }
-                else if (gameplay.indexX == 3)
-                {
-                    p13.Source = source;
-                }
-                else
-                {
-                    p14.Source = source;
-                }
-            }
-            else if (gameplay.indexY == 2)
-            {
-                if (gameplay.indexX == 0)
-                {
-                    p20.Source = source;
-                }
-                else if (gameplay.indexX == 1)
-                {
-                    p21.Source = source;
-                }
-                else if (gameplay.indexX == 2)
-                {
-                    p22.Source = source;
-                }
-                else if (gameplay.indexX == 3)
-                {
-                    p23.Source = source;
-                }
-                else
-                {
-                    p24.Source = source;
-                }
-            }
-            else if (gameplay.indexY == 3)
-            {
-                if (gameplay.indexX == 0)
-                {
-                    p30.Source = source;
-                }
-                else if (gameplay.indexX == 1)
-                {
-                    p31.Source = source;
-                }
-                else if (gameplay.indexX == 2)
-                {
-                    p32.Source = source;
-                }
-                else if (gameplay.indexX == 3)
-                {
-                    p33.Source = source;
-                }
-                else
-                {
-                    p34.Source = source;
-                }
-            }
-            else
-            {
-                if (gameplay.indexX == 0)
-                {
-                    p40.Source = source;
-                }
-                else if (gameplay.indexX == 1)
-                {
-                    p41.Source = source;
-                }
-                else if (gameplay.indexX == 2)
-                {
-                    p42.Source = source;
-                }
-                else if (gameplay.indexX == 3)
-                {
-                    p43.Source = source;
-                }
-                else
-                {
-                    p44.Source = source;
-                }
-            }
-        }
+        [Obsolete]
         private async void p00_Clicked(object sender, EventArgs e)
         {
-            //ImageButton n= new ImageButton();
-            
+            cells[gameplay.indexY, gameplay.indexX].Source = "Butterfly.png";
             var n = sender as ImageButton;
-            int index = gameplay.indexX+(gameplay.indexY*5);
+            int index = gameplay.indexX + (gameplay.indexY * 5);
             var f = board.Children[index];
             if (n.Id == f.Id)
             {
-                n.BackgroundColor = new Color(10, 250, 10);
-                await PopupNavigation.Instance.PushAsync(new Popup1());
+                gameplay.Board[gameplay.indexX][gameplay.indexY] = 1;
                 n.BackgroundColor = new Color(0, 250, 0);
             }
             else
             {
-                n.BackgroundColor = new Color(100, 0, 0);
-                await DisplayAlert("اشتباه!", "دوباره سعی کن", "برگشت");
-                Game.stage = 1;
-                await Navigation.PopAsync();
+                n.BackgroundColor = new Color(150,0,0);
             }
-            ButterFlyMove("Butterfly.png");
-
+            if (gameplay.stage==5)
+            {
+                await PopupNavigation.PushAsync(new FinalyPopup(gameplay.Calc()));
+            }
+            else
+            {
+                var popup = new Popup1();
+                popup.onClose += popup_onClose;
+                await PopupNavigation.Instance.PushAsync(popup);
+            }
         }
+        private void popup_onClose(Object s, EventArgs e)
+        {
+            clear_value();
+            counter += gameplay.stage * 2;
+            Delay -= gameplay.stage * 50;
+        }
+        private void Create_Board()
+        {
+            cells = new ImageButton[5, 5];
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j < 5; j++)
+                {
+                    cells[i, j].BackgroundColor = new Color(0, 0, 250);
+                    board.Children.Add(cells[i, j], j, i);
+                }
+        }
+        private void clear_value()
+        {
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j < 5; j++)
+                {
+                    cells[i, j].Source = "";
+                    cells[i, j].BackgroundColor=new Color(0,0,250);
+                }
+            cells[2, 2].Source = "Butterfly.png";
+        }   
     }
 }
