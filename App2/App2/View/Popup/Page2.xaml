@@ -30,10 +30,9 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Frame Grid.Row="0" BackgroundColor="White" Margin="0,50" Padding="0" CornerRadius="10" VerticalOptions="Start" >
-                    <Label Text="درست حدس زدی!"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" FontAttributes="Bold"/>
+                    <Label Text="برای شروع مرحله بعدی رو دکمه پایین کلیک کن"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" FontAttributes="Bold"/>
                 </Frame>
                 <Image Source="BGif.gif" IsAnimationPlaying="True" Grid.Row="1"/>
-                <Label Text="آفرین!" Grid.Row="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="30" FontAttributes="Bold" />
                 <Button Text="مرحله بعدی" x:Name="nextstage" Clicked="Button_Clicked_1" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Center" FontAttributes="Bold" TextColor="DodgerBlue" BackgroundColor="White" CornerRadius="40"/>
                 </Grid>
         </Frame>

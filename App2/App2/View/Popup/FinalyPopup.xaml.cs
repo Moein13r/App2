@@ -1,4 +1,5 @@
 ﻿using Rg.Plugins.Popup.Pages;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,7 +19,7 @@ namespace App2.View.Popup
             {
                 content.BackgroundColor = new Color(100,50,10);
                 resualt.Text = "تبریک!";
-                mood.Source = "t.jpg";
+                mood.Source = "h.jpg";
             }
             else
             {
@@ -26,6 +27,14 @@ namespace App2.View.Popup
                 resualt.Text = "دوباره امتحان کنید";
                 mood.Source = "th.jpg";
             }
+        }
+
+        [System.Obsolete]
+        private async void Button_Clicked(object sender, System.EventArgs e)
+        {
+            await PopupNavigation.Instance.PopAsync();
+            await Navigation.PopAsync(true);
+            await Navigation.PushAsync(new Page1());
         }
     }
 }

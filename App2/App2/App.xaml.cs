@@ -1,4 +1,5 @@
-﻿using App2.Views.Popup;
+﻿using App2.View.Popup;
+using App2.Views.Popup;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

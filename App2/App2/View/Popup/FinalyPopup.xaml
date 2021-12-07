@@ -14,13 +14,13 @@
             ScaleIn="1.2"  
             ScaleOut="0.8"  
             DurationIn="400"  
-            DurationOut="300"  
+            DurationOut="300"
             EasingIn="SinOut"  
             EasingOut="SinIn"  
             HasBackgroundAnimation="False"/>
     </pages:PopupPage.Animation>
     <ContentPage.Content>
-        <Frame Margin="50,80" BorderColor="white" CornerRadius="10">
+        <Frame Margin="50,80" BorderColor="white" CornerRadius="10" Opacity="0.7">
             <Grid x:Name="content">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -29,6 +29,7 @@
                 </Grid.RowDefinitions>
                 <Image x:Name="mood" />
                 <Label Grid.Row="1" x:Name="resualt" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="25"/>
+                <Button Clicked="Button_Clicked" Text="شروع مجدد" Grid.Row="2" VerticalOptions="End" HorizontalOptions="End"/>
             </Grid>
         </Frame>
     </ContentPage.Content>

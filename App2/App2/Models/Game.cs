@@ -10,24 +10,19 @@ namespace App2.Models
     {
         public Game()
         {
-            this.indexX = 2;
-            this.indexY = 2;
         }
         public string[] Arrows1 = { "U", "UR", "R", "DR", "D", "DL", "L", "LU" };
         public Dictionary<string, int> Arrows = new Dictionary<string, int>() { { "U", -90 }, { "UR", -45 }, { "R", 0 }, { "DR", 45 }, { "D", 90 }, { "DL", 135 }, { "L", 180 }, { "LU", 225 } };
         //public int[,] board = new int[5,5];
-        public List<int[]> Board = new List<int[]>();
         public int indexX;
         public int indexY;
         public int stage = 1;
         public int count { get; set; }
         public int speed { set; get; }
-        public bool Calc()
+        public void set_data()
         {
-            int sum =0;
-            Board.ForEach(x => Array.ForEach(x, i => sum += i));
-            return sum > 2 ? true : false;
-           // return true;
+            this.indexX = 2;
+            this.indexY = 2;
         }
     }
     //public void ButterFlyMove(string source)
