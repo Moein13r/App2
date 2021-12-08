@@ -20,16 +20,16 @@
             HasBackgroundAnimation="False"/>
     </pages:PopupPage.Animation>
     <ContentPage.Content>
-        <Frame Margin="50,80" BorderColor="white" CornerRadius="10" Opacity="0.7">
-            <Grid x:Name="content">
+        <Frame Margin="50,80" CornerRadius="10" Opacity="0.7">
+            <Grid x:Name="content"  BackgroundColor="LightGoldenrodYellow">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Image x:Name="mood" />
+                <Image x:Name="mood" Margin="20"/>
                 <Label Grid.Row="1" x:Name="resualt" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="25"/>
-                <Button Clicked="Button_Clicked" Text="شروع مجدد" Grid.Row="2" VerticalOptions="End" HorizontalOptions="End"/>
+                <Button Clicked="Button_Clicked" Text="شروع مجدد" Grid.Row="2" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,10" BackgroundColor="Tomato" FontAttributes="Bold" BorderColor="White"/>
             </Grid>
         </Frame>
     </ContentPage.Content>

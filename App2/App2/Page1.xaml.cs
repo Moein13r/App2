@@ -20,30 +20,44 @@ namespace App2
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await (sender as Button).FadeTo(0,400);
-            await Task.Delay(200);
-            await (sender as Button).FadeTo(1, 400);
+            await (sender as Frame).FadeTo(0.7,200);
+            await (sender as Frame).FadeTo(1,200);
+            var img=(Image)((Grid)(sender as Frame).Content).Children[1];
+            //await img.ScaleTo(1.5, 500);
+            //await Task.Delay(500);
+            //await img.ScaleTo(1, 500);
+            await Task.Run(() => animate(ref img));
             await Navigation.PushModalAsync(new MainPage(10,1000),true);
         }
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
-            await (sender as Button).FadeTo(0, 400);
-            await Task.Delay(200);
-            await (sender as Button).FadeTo(1, 400);
+            await (sender as Frame).FadeTo(0.7, 200);
+            await (sender as Frame).FadeTo(1, 200);
+            var img = (Image)((Grid)(sender as Frame).Content).Children[1];
+            await Task.Run(() => animate(ref img));
             await Navigation.PushModalAsync(new MainPage(15,800),true);
         }
 
         private async void Button_Clicked_2(object sender, EventArgs e)
         {
-            await (sender as Button).FadeTo(0, 400);
-            await Task.Delay(200);
-            await (sender as Button).FadeTo(1, 400);
+            await (sender as Frame).FadeTo(0.7, 200);
+            await (sender as Frame).FadeTo(1, 200);
+            var img = (Image)((Grid)(sender as Frame).Content).Children[1];
+            await Task.Run(() => animate(ref img));
             await Navigation.PushModalAsync(new MainPage(20,500),true);
         }
 
         private async void Button_Clicked_3(object sender, EventArgs e)
         {
-            await PopupNavigation.Instance.PushAsync(new Popup2(),true);
+            //await PopupNavigation.Instance.PushAsync(new Popup2(),true);
+            await PopupNavigation.Instance.PushAsync(new FinalyPopup(true));
+        }
+        private Task animate(ref Image img)
+        {
+            img.ScaleTo(1.15, 500).Wait();
+            Task.Delay(400).Wait();
+            img.ScaleTo(1, 500).Wait();
+            return Task.CompletedTask;
         }
     }
 }

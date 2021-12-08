@@ -66,7 +66,7 @@ namespace App2
         public async Task Play()
         {
             Random f = new Random(DateTime.Now.Second);
-            for (int i = 0; i < counter; i++)
+            for (int i = 0; i < counter1; i++)
             {
                 // dir is move direction
                 string dir = gameplay.Arrows1[f.Next(0, 7)];
@@ -77,7 +77,7 @@ namespace App2
                 Arrow.Source = "";
                 await Task.Delay(200);
                 ArrowCoordinate(dir);
-                await Task.Delay(Delay);
+                await Task.Delay(Delay1);
             }
 
             timerlabel.Text = "انتخاب کن";

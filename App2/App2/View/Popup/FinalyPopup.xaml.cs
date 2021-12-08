@@ -28,11 +28,9 @@ namespace App2.View.Popup
                 mood.Source = "th.jpg";
             }
         }
-
-        [System.Obsolete]
         private async void Button_Clicked(object sender, System.EventArgs e)
         {
-            await PopupNavigation.Instance.PopAsync();
+            await PopupNavigation.Instance.PopAllAsync(true);
             await Navigation.PopAsync(true);
             await Navigation.PushAsync(new Page1());
         }
