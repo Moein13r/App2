@@ -23,12 +23,10 @@
         <Frame Margin="50,80" CornerRadius="10" Opacity="0.7">
             <Grid x:Name="content"  BackgroundColor="LightGoldenrodYellow">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Image x:Name="mood" Margin="20"/>
-                <Label Grid.Row="1" x:Name="resualt" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="25"/>
+                <Label Grid.Row="0" Text="خوش آمدی به بازی جهت پروانه با هر بار ظاهر شدن فلش  جایگاه پروانه به اندازه یک خانه تغییر میکند وظیفه شما حدس زدن آخرین جایگاه پروانه پس از پاین یافتن حرکات پروانه هست" x:Name="resualt" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
                 <Button Clicked="Button_Clicked" Text="شروع مجدد" Grid.Row="2" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,10" BackgroundColor="Tomato" FontAttributes="Bold" BorderColor="White"/>
             </Grid>
         </Frame>

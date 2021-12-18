@@ -2,14 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App2.MainPage">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style TargetType="Label" x:Key="TextStyle">
-                <Setter Property="FontFamily" Value="pfont1" />
-                <Setter Property="FontSize" Value="Large" />
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <Grid.Background>
@@ -27,7 +19,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Frame Grid.Row="0" Margin="100,20" CornerRadius="50" BackgroundColor="#95d5b2">
-                <Image x:Name="Arrow"  HorizontalOptions="Center" Source="" VerticalOptions="Center"/>
+                <Image x:Name="Arrow" HorizontalOptions="Center" Source="" VerticalOptions="Center"/>
             </Frame>
             <Grid Grid.Row="1" Margin="20,0" x:Name="board">
 
@@ -46,9 +38,9 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
             </Grid>
-            <Label x:Name="timerlabel" Grid.Row="2" TextColor="LightCyan" HorizontalOptions="Center" Text="برای شروع بازی روی دکمه شروع بزن " VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource TextStyle}" />
-            <Label x:Name="stage" Grid.Row="3" TextColor="LightCyan" HorizontalOptions="Center" Text="مرحله 1" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource TextStyle}" />
-            <Button x:Name="play_btn" Clicked="Button_Clicked" Text="شروع" Grid.Row="4" VerticalOptions="End" Margin="20,0,20,50" BackgroundColor="#95d5b2" HeightRequest="70" FontAttributes="Bold" CornerRadius="10" FontSize="25" TextColor="White" />
+            <Label x:Name="timerlabel" Grid.Row="2" TextColor="LightCyan" HorizontalOptions="Center" Text="برای شروع بازی روی دکمه شروع بزن " VerticalOptions="Center" FontAttributes="Bold" />
+            <Label x:Name="stage" Grid.Row="3" TextColor="LightCyan" HorizontalOptions="Center" Text="مرحله 1" VerticalOptions="Center" FontAttributes="Bold" />
+            <Button x:Name="play_btn" Margin="10,0" Clicked="Button_Clicked" Text="شروع" Grid.Row="4" VerticalOptions="Center" BackgroundColor="#95d5b2" HeightRequest="70" FontAttributes="Bold"  CornerRadius="10" FontSize="25" TextColor="White" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
