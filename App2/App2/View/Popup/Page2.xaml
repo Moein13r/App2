@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="App2.Views.Popup.Popup1"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"  
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    CloseWhenBackgroundIsClicked="True"
+    >
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation   
+            PositionIn="Center"  
+            PositionOut="Center"  
+            ScaleIn="1.2"  
+            ScaleOut="0.8"  
+            DurationIn="400"  
+            DurationOut="300"  
+            EasingIn="SinOut"  
+            EasingOut="SinIn"  
+            HasBackgroundAnimation="False"/>
+    </pages:PopupPage.Animation>
+
+    <ContentPage.Content>
+        <Frame BackgroundColor="Orange" Margin="50,80" Opacity="0.8">
+            <Grid x:Name="popup">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Frame Grid.Row="0" BackgroundColor="White" Margin="0,50" Padding="0" CornerRadius="10" VerticalOptions="Start" >
+                    <Label Text="برای شروع مرحله بعدی رو دکمه پایین کلیک کن"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" FontAttributes="Bold"/>
+                </Frame>
+                <Image Source="BGif.gif" IsAnimationPlaying="True" Grid.Row="1"/>
+                <Button Text="مرحله بعدی" x:Name="nextstage" Clicked="Button_Clicked_1" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Center" FontAttributes="Bold" TextColor="DodgerBlue" BackgroundColor="White" CornerRadius="40"/>
+                </Grid>
+        </Frame>
+    </ContentPage.Content>
+</pages:PopupPage>
