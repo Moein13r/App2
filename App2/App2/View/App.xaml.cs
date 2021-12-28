@@ -1,4 +1,5 @@
-﻿using App2.View.Popup;
+﻿using App2.View;
+using App2.View.Popup;
 using App2.Views.Popup;
 using System;
 using Xamarin.Forms;
@@ -11,7 +12,7 @@ namespace App2
         public App()
         {
             InitializeComponent();
-            MainPage =new NavigationPage( new Page1());
+            MainPage =new NavigationPage( new BeeGameScore());
         }
 
         protected override void OnStart()

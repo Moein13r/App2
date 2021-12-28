@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.View.BeeGameScore">
+    <ContentPage.Content>
+        <Frame BackgroundColor="MediumPurple" CornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="شروع"  BorderWidth="1" CornerRadius="100" FontAttributes="Bold" Margin="10,55" TextColor="Black" BackgroundColor="LightBlue" BorderColor="Black"/>
+            </Grid>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

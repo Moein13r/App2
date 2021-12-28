@@ -10,25 +10,32 @@ namespace App2.DataBase
     class GameDatabase
     {
         static SQLiteAsyncConnection Database;
-        public GameDatabase()
+
+        public static readonly AsyncLazy<GameDatabase> Instance = new AsyncLazy<GameDatabase>(async () =>
         {
-            Database = new SQLiteAsyncConnection(Constant.databasePath,Constant.flags);
+            var instance = new GameDatabase();
+            CreateTableResult result = await Database.CreateTableAsync<Score>();
+            return instance;
+        });
+        public GameDatabase()
+        {        
+            Database = new SQLiteAsyncConnection(Constant.databasePath, Constant.flags);
         }
-
-        static SQLite.SQLiteConnection Databse;
-        //public  static GameDatabase instance
-        //{
-        //    get
-        //    {
-        //        Task.Run(async()=>await Database.CreateTablesAsync<Score>());
-        //        return instance;
-        //    }
-        //}
-
-
-        //public Task<string> GetItemAsync()
-        //{
-        // return 
-        //}
+        public Task<List<Score>> GetItem()
+        {
+            return Database.QueryAsync<Score>("SELECT * FROM [Score]");
+        }
+        public Task<List<Score>>GetBestState(string Name)
+        {
+            return Database.QueryAsync<Score>("SELECT state FROM [Score] WHERE name='"+Name+"'");
+        }
+        public Task SaveItem(Score item)
+        {
+            return Database.InsertOrReplaceAsync(item);
+        }
+        public Task DeleteItem(Score item)
+        {
+            return Database.DeleteAsync<Score>(item);
+        }
     }
 }

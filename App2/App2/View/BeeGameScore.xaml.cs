@@ -1,20 +1,18 @@
-﻿using Rg.Plugins.Popup.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using App2.DataBase;
-using App2.Models;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace App2.View.Popup
+namespace App2.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Popup2 : PopupPage
+    public partial class BeeGameScore : ContentPage
     {
-        public Popup2()
+        public BeeGameScore()
         {
             InitializeComponent();
         }
