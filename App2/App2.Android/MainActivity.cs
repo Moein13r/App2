@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Lottie.Forms.Platforms.Android;
 
 
 namespace App2.Droid

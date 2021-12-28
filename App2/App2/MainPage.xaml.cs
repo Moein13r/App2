@@ -7,15 +7,21 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using App2.Models;
+master
 using Rg.Plugins.Popup.Services;
 using App2.Views.Popup;
 using App2.View.Popup;
 using App2.View;
+ orgi
 
 namespace App2
 {
     public partial class MainPage : ContentPage
     {
+        Game gameplay;
+        int Delay;
+        int counter;
+        public MainPage(int _counter,int _delay)
         ImageButton[,] cells;
         public List<int[]> Board = new List<int[]>();
         Game gameplay;
@@ -25,12 +31,20 @@ namespace App2
         int counter1;
         [Obsolete]
         public MainPage(int _counter, int _delay)
+          orgi
         {
             for (int i = 0; i < 5; i++)
             {
                 Board.Add(new int[] { 0, 0, 0, 0, 0 });
             }
             InitializeComponent();
+            counter = _counter;
+            Delay = _delay;
+        }
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            Arrow.Source = "";
+            p22.Source = "Butterfly.png";
             Create_Board();
             counter = _counter;
             gameplay = new Game();
@@ -63,13 +77,35 @@ namespace App2
             timerlabel.Text = "1";
             await timerlabel.ScaleTo(2, 1);
             await Task.Delay(1000);
+
             timerlabel.Text = "شروع";
             play_btn.IsVisible = false;
             await Play();
         }
         public async Task Play()
         {
+            gameplay = new Game();
             Random f = new Random(DateTime.Now.Second);
+           for (int i = 0; i < counter; i++)
+            {
+                // dir is move direction
+                string dir = gameplay.Arrows1[f.Next(0, 7)];
+                timerlabel.Text = dir;
+                ArrowCoordinate(dir);
+                move(dir);
+                await Task.Delay(Delay);
+            }
+            p22.Source = "";
+            ButterFlyMove("Butterfly.png");
+            await Task.Delay(3000);
+            play_btn.IsVisible = true;
+            timerlabel.Text = "Tap Play To Start";
+            gameplay.Board[gameplay.indexX, gameplay.indexY] = 1;
+            ButterFlyMove("");
+        }
+        //move function is for to move form the current position to target position mathematic
+        public void move(string dir)
+
             for (int i = 0; i < counter1; i++)
             {
                 // dir is move direction
@@ -93,8 +129,12 @@ namespace App2
         {
             switch (dir)
             {
-                case "U":
+                case "U":master
+                    if (gameplay.indexY > 0)
+                    {
+                      orgi
                         gameplay.indexY -= 1;
+                    }
                     break;
                 case "UR":
                         gameplay.indexY -= 1;
@@ -115,8 +155,10 @@ namespace App2
                         gameplay.indexY += 1;
                     break;
                 case "L":
+                master
+                    if (gameplay.indexX > 0)
                         gameplay.indexX -= 1;
-
+                        gameplay.indexX -= 1;
                     break;
                 case "LU":
                         gameplay.indexX -= 1;
@@ -175,6 +217,125 @@ namespace App2
         {
             Arrow.Source = "Arrow.png";
             Arrow.Rotation = gameplay.Arrows[dir];
+        }
+        // ButterflyMove is for move butterfly from current position to the target position
+        public void ButterFlyMove(string source)
+        {
+            if (gameplay.indexY == 0)
+            {
+                if (gameplay.indexX == 0)
+                {
+                    p00.Source = source;
+                }
+                else if (gameplay.indexX == 1)
+                {
+                    p01.Source = source;
+                }
+                else if (gameplay.indexX == 2)
+                {
+                    p02.Source = source;
+                }
+                else if (gameplay.indexX == 3)
+                {
+                    p03.Source = source;
+                }
+                else
+                {
+                    p04.Source = source;
+                }
+            }
+            else if (gameplay.indexY == 1)
+            {
+                if (gameplay.indexX == 0)
+                {
+                    p10.Source = source;
+                }
+                else if (gameplay.indexX == 1)
+                {
+                    p11.Source = source;
+                }
+                else if (gameplay.indexX == 2)
+                {
+                    p12.Source = source;
+                }
+                else if (gameplay.indexX == 3)
+                {
+                    p13.Source = source;
+                }
+                else
+                {
+                    p14.Source = source;
+                }
+            }
+            else if (gameplay.indexY == 2)
+            {
+                if (gameplay.indexX == 0)
+                {
+                    p20.Source = source;
+                }
+                else if (gameplay.indexX == 1)
+                {
+                    p21.Source = source;
+                }
+                else if (gameplay.indexX == 2)
+                {
+                    p22.Source = source;
+                }
+                else if (gameplay.indexX == 3)
+                {
+                    p23.Source = source;
+                }
+                else
+                {
+                    p24.Source = source;
+                }
+            }
+            else if (gameplay.indexY == 3)
+            {
+                if (gameplay.indexX == 0)
+                {
+                    p30.Source = source;
+                }
+                else if (gameplay.indexX == 1)
+                {
+                    p31.Source = source;
+                }
+                else if (gameplay.indexX == 2)
+                {
+                    p32.Source = source;
+                }
+                else if (gameplay.indexX == 3)
+                {
+                    p33.Source = source;
+                }
+                else
+                {
+                    p34.Source = source;
+                }
+            }
+            else
+            {
+                if (gameplay.indexX == 0)
+                {
+                    p40.Source = source;
+                }
+                else if (gameplay.indexX == 1)
+                {
+                    p41.Source = source;
+                }
+                else if (gameplay.indexX == 2)
+                {
+                    p42.Source = source;
+                }
+                else if (gameplay.indexX == 3)
+                {
+                    p43.Source = source;
+                }
+                else
+                {
+                    p44.Source = source;
+                }
+            }
         }
 
         // ButterflyMove is for move butterfly from current position to the target position

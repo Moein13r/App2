@@ -12,6 +12,12 @@ namespace App2.Models
         {
         }
         public string[] Arrows1 = { "U", "UR", "R", "DR", "D", "DL", "L", "LU" };
+master
+        public Dictionary<string,int> Arrows = new Dictionary<string, int>() { { "U",-90 }, { "UR",-45 }, { "R",0 }, { "DR",45 }, { "D",90 }, { "DL",135 }, { "L",180 }, { "LU",225} };
+        public int[,] Board = new int[5, 5];
+        public int indexX = 2;
+        public int indexY = 2;
+
         public Dictionary<string, int> Arrows = new Dictionary<string, int>() { { "U", -90 }, { "UR", -45 }, { "R", 0 }, { "DR", 45 }, { "D", 90 }, { "DL", 135 }, { "L", 180 }, { "LU", 225 } };
         //public int[,] board = new int[5,5];
         public int indexX;
@@ -24,6 +30,7 @@ namespace App2.Models
             this.indexX = 2;
             this.indexY = 2;
         }
+orgi
     }
     //public void ButterFlyMove(string source)
     //{
