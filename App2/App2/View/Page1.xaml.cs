@@ -18,6 +18,7 @@ namespace App2
         bool isbusy = false;
         public  Page1()
         {
+            NavigationPage.SetHasNavigationBar(this,true);
             InitializeComponent();
             //this.Children.Add();
         }

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.Page1"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="labelstyle">
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="25" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="Green"/>
+            </Style>
+            <Style TargetType="Frame" x:Key="framestyle">
+                <Setter Property="Margin" Value="10,5" />
+                <Setter Property="BackgroundColor" Value="#fcf7ff" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="BorderColor" Value="#cbc0d3"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid BackgroundColor="#bfd8bd">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="1.2*" />
+                <RowDefinition Height="1.2*" />
+                <RowDefinition Height="1.2*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <Image Source="butgif.gif" IsAnimationPlaying="true" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Label Grid.Row="1" Text="درجه سختی:" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="30" FontAttributes="Bold" TextColor="White" />
+            <Frame Grid.Row="2" Style="{StaticResource framestyle}" Padding="10">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Clicked"/>
+                </Frame.GestureRecognizers>
+                <Grid>
+                <Label Text="آسان" Style="{StaticResource labelstyle}"/>
+                <Image Source="But.png" HorizontalOptions="End" Margin="5"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="3" Style="{StaticResource framestyle}" Padding="10">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Clicked_1"/>
+                </Frame.GestureRecognizers>
+                <Grid>
+                    <Label Text="متوسط" Style="{StaticResource labelstyle}"/>
+                    <Image Source="But.png" HorizontalOptions="End" Margin="5" />
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="4" Style="{StaticResource framestyle}" Padding="10">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Clicked_2"/>
+                </Frame.GestureRecognizers>
+                <Grid>
+                <Label Text="سخت" Style="{StaticResource labelstyle}"/>
+                    <Image Source="But.png" HorizontalOptions="End" Margin="5"/>
+                </Grid>
+            </Frame>
+            <Button Grid.Row="5" Text="قوانین بازی و راهنمایی" VerticalOptions="End" HorizontalOptions="Start" Clicked="Button_Clicked_3"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

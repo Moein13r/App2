@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+                  xmlns:Animation="clr-namespace:Rg.Plugins.Popup.Enums;assembly=Rg.Plugins.Popup"
+                  xmlns:animation="http://rotorgames.com"
+    CloseWhenBackgroundIsClicked="False"
+    x:Class="App2.View.Result">
+    <pages:PopupPage.Animation>
+        <animation:ScaleAnimation DurationIn="400" DurationOut="300" EasingIn="SinOut" EasingOut="SinIn" HasBackgroundAnimation="True" PositionIn="Center" PositionOut="Center" ScaleIn="1.2" ScaleOut="0.8"  />
+    </pages:PopupPage.Animation>
+    <ContentPage.Content>
+        <Frame Margin="40,20">
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0" Color="DodgerBlue" />
+                        <GradientStop Offset="0.3" Color="LightBlue" />
+                        <GradientStop Offset="0.6" Color="#9cf" />
+                        <GradientStop Offset="1" Color="LightPink" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Text="نتایج شما" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"/>
+                <Label x:Name="res" Grid.Row="0" VerticalOptions="End" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"/>
+                <Grid VerticalOptions="Center" HorizontalOptions="Center" x:Name="board" Grid.Row="1" Margin="5,10">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <Label x:Name="stage" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Start" />
+                <Button Margin="10,0,0,0" Clicked="Button_Clicked" BackgroundColor="LightBlue" Text="بعدی" FontAttributes="Bold"  BorderColor="White" BorderWidth="1" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="2"/>
+                <Button Margin="10,0,0,0" Clicked="Button_Clicked_1"  BackgroundColor="LightBlue" Text="رد کردن" FontAttributes="Bold"  BorderColor="White" BorderWidth="1" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="2"/>
+            </Grid>
+        </Frame>
+    </ContentPage.Content>
+</pages:PopupPage>
