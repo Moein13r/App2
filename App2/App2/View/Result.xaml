@@ -47,7 +47,7 @@
                 </Grid>
                 <Label x:Name="stage" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Start" />
                 <Button Margin="10,0,0,0" Clicked="Button_Clicked" BackgroundColor="LightBlue" Text="بعدی" FontAttributes="Bold"  BorderColor="White" BorderWidth="1" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="2"/>
-                <Button Margin="10,0,0,0" Clicked="Button_Clicked_1"  BackgroundColor="LightBlue" Text="رد کردن" FontAttributes="Bold"  BorderColor="White" BorderWidth="1" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="2"/>
+                <Button Margin="10,0,0,0" Clicked="Button_Clicked_1"  BackgroundColor="LightBlue" Text="رد شدن" FontAttributes="Bold"  BorderColor="White" BorderWidth="1" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="2"/>
             </Grid>
         </Frame>
     </ContentPage.Content>

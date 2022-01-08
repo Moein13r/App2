@@ -11,6 +11,7 @@ using Rg.Plugins.Popup.Services;
 using App2.Views.Popup;
 using App2.View.Popup;
 using App2.View;
+using Xamarin.Essentials;
 
 namespace App2
 {
@@ -23,6 +24,9 @@ namespace App2
         int counter;
         int Delay1;
         int counter1;
+        [Obsolete]
+        double position=0;
+
         [Obsolete]
         public MainPage(int _counter, int _delay)
         {
@@ -47,24 +51,31 @@ namespace App2
             cells[2, 2].Source = "Butterfly.png";
             await timer();
         }
+
         //timer Is Game Timer Before start
+        [Obsolete]
         public async Task timer()
         {
             counter1 = counter + gameplay.stage * 2;
             Delay1 = Delay - gameplay.stage * 50;
+            timerfarme.BackgroundColor = Color.LightBlue;
             await Task.Delay(300);
             await play_btn.FadeTo(0,300);
             timerlabel.Text = "3";
-            await timerlabel.ScaleTo(2, 1);
+            await timerfarme.ScaleTo(1.5, 150);
+            await timerfarme.ScaleTo(1, 150);
             await Task.Delay(1000);
             timerlabel.Text = "2";
-            await timerlabel.ScaleTo(1, 1);
+            await timerfarme.ScaleTo(1.5, 150);
+            await timerfarme.ScaleTo(1, 150);
             await Task.Delay(1000);
             timerlabel.Text = "1";
-            await timerlabel.ScaleTo(2, 1);
+            await timerfarme.ScaleTo(1.5, 150);
+            await timerfarme.ScaleTo(1, 150);
             await Task.Delay(1000);
             timerlabel.Text = "شروع";
             play_btn.IsVisible = false;
+            timerfarme.BackgroundColor = Color.Transparent;
             await Play();
         }
         public async Task Play()

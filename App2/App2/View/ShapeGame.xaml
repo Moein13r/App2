@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="App2.View.ShapeGame"
+             xmlns:tool="http://xamarin.com/schemas/2020/toolkit"
+             >
+    <ContentPage.Content>
+        <Grid x:Name="Content">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.RowSpan="3" Aspect="AspectFill" Source="ShapeGameBannerBG.webp" />
+            <forms:AnimationView
+                x:Name="Lottie"
+                Grid.Row="0"
+                AutoPlay="True"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                Margin="30, 115, 30, 10"
+                IsVisible="false"/>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="2.7*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="3" HasShadow="False" BackgroundColor="#ABFFFFFF" Margin="0, 30, 0, 80" Padding="0" BorderColor="Black" >
+                    <Label BackgroundColor="Transparent" Opacity="0.7" HorizontalOptions="Center" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" TextColor="Black">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="امتیاز:" />
+                                <Span Text="۰" x:Name="Scorelabel"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Frame>
+
+                <Frame Grid.Column="2" HasShadow="False" BackgroundColor="#ABffffff" BorderColor="Black" Padding="0" Margin="0, 30, 0, 80" >
+                    <Label BackgroundColor="Transparent"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand"  FontSize="20" TextColor="Black">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="مرحله ۱" x:Name="stage" FontSize="20"/>
+                                <Span Text=" از ۲۰"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Frame>
+
+            </Grid>
+            <Label x:Name="instane2" Text="به یاد بسپار" Grid.Row="0" TextColor="White" VerticalOptions="End" HorizontalOptions="Center" FontSize="20" IsVisible="false"/>
+            <Label x:Name="Instance" Grid.Row="2" VerticalOptions="Start" HorizontalOptions="Center" FontAttributes="Bold" TextColor="White"  />
+            <Button Clicked="Button_Clicked" Text="شروع کن!" BackgroundColor="#2b6a4d" TextColor="White" Grid.Row="2" Margin="40,0" VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

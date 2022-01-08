@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App2.MainPage">
     <ContentPage.Content>
-        <Grid>
+        <Grid x:Name="maincontent">
             <Grid.Background>
                 <LinearGradientBrush>
                     <GradientStop Offset="0" Color="DodgerBlue"/>
@@ -37,8 +37,10 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-            </Grid>
-            <Label x:Name="timerlabel" Grid.Row="2" TextColor="LightCyan" HorizontalOptions="Center" Text="برای شروع بازی روی دکمه شروع بزن " VerticalOptions="Center" FontAttributes="Bold" />
+            </Grid> 
+            <Frame x:Name="timerfarme" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center" IsClippedToBounds="True" CornerRadius="40" Padding="20,15" BackgroundColor="Transparent">
+                <Label x:Name="timerlabel" TextColor="LightCyan" HorizontalOptions="Center" Text="برای شروع بازی روی دکمه شروع بزن" VerticalOptions="Center" FontAttributes="Bold" FontSize="Medium" />
+            </Frame>
             <Label x:Name="stage" Grid.Row="3" TextColor="LightCyan" HorizontalOptions="Center" Text="مرحله 1" VerticalOptions="Center" FontAttributes="Bold" />
             <Button x:Name="play_btn" Margin="10,0" Clicked="Button_Clicked" Text="شروع" Grid.Row="4" VerticalOptions="Center" BackgroundColor="#95d5b2" HeightRequest="70" FontAttributes="Bold"  CornerRadius="10" FontSize="25" TextColor="White" />
         </Grid>

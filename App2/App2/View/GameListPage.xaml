@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:tool="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.View.GameListPage"
+             FlowDirection="RightToLeft"
+             >
+
+    <TabbedPage.Children>
+        <ContentPage Title="Home">
+            <Grid BackgroundColor="LightBlue">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Frame Margin="0,20" Grid.Row="0" BackgroundColor="DodgerBlue" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="ShapeGameBannerBG.webp" Aspect="AspectFill"/>
+                        <Label Grid.Row="1" VerticalTextAlignment="Center" Text="طول موج حافظه بلند مدت خود را با تمرین های هر روزه افزایش دهید." FontAttributes="Bold" FontSize="15" TextColor="White"/>
+                    </Grid>
+                </Frame>
+                <StackLayout Grid.Row="1">
+                    <Frame tool:ShadowEffect.Color="Black" HeightRequest="120" Padding="0" Margin="10,0" CornerRadius="10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="1" Grid.Column="1" Text="حافظه" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="25" HorizontalOptions="Start"/>
+                            <Image Grid.RowSpan="4" Grid.Column="0" Source="Butterfly.png" HorizontalOptions="Start" Margin="15,0,15,15"/>
+                            <Label Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="3" Text=" مغز خود را با مسیر یابی جهت پروانه به چالش بکشید." VerticalTextAlignment="Start" HorizontalTextAlignment="Start" HorizontalOptions="Start" FontSize="15" />
+                        </Grid>
+                    </Frame>
+                    <Frame tool:ShadowEffect.Color="Black" HeightRequest="120" Padding="0" Margin="10,10,10,0" CornerRadius="10" >
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                        </Frame.GestureRecognizers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="1" Grid.Column="1" Text="حافظه" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="25" HorizontalOptions="Start"/>
+                            <Image Grid.RowSpan="4" Grid.Column="0" Source="square.png" HorizontalOptions="Start" Margin="15,0,15,15"/>
+                            <Label Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="3" Text="با به خاطر سپردن مسیر ها حافظه خود را تقویت کنید." VerticalTextAlignment="Start" HorizontalTextAlignment="Start" HorizontalOptions="Start" FontSize="15" />
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>

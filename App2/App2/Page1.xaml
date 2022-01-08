@@ -1,16 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App2.Page1"
-             >
-    <ContentPage.Resources>
+<TabbedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:Shadow="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="App2.Page1"  
+    xmlns:shade="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+    xmlns:sharpnado="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame" 
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    >
+    <TabbedPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label" x:Key="labelstyle">
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="FontSize" Value="25" />
-                <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="Green"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Green" />
             </Style>
             <Style TargetType="Frame" x:Key="framestyle">
                 <Setter Property="Margin" Value="10,5" />
@@ -20,47 +25,49 @@
                 <Setter Property="BorderColor" Value="#cbc0d3"/>
             </Style>
         </ResourceDictionary>
-    </ContentPage.Resources>
-    <ContentPage.Content>
-        <Grid BackgroundColor="#bfd8bd">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="1.2*" />
-                <RowDefinition Height="1.2*" />
-                <RowDefinition Height="1.2*" />
-                <RowDefinition Height="2*" />
-            </Grid.RowDefinitions>
-            <Image Source="butgif.gif" IsAnimationPlaying="true" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Label Grid.Row="1" Text="درجه سختی:" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="30" FontAttributes="Bold" TextColor="White" />
-            <Frame Grid.Row="2" Style="{StaticResource framestyle}" Padding="10">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Button_Clicked"/>
-                </Frame.GestureRecognizers>
-                <Grid>
-                <Label Text="آسان" Style="{StaticResource labelstyle}"/>
-                <Image Source="But.png" HorizontalOptions="End" Margin="5"/>
-                </Grid>
-            </Frame>
-            <Frame Grid.Row="3" Style="{StaticResource framestyle}" Padding="10">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Button_Clicked_1"/>
-                </Frame.GestureRecognizers>
-                <Grid>
-                    <Label Text="متوسط" Style="{StaticResource labelstyle}"/>
-                    <Image Source="But.png" HorizontalOptions="End" Margin="5" />
-                </Grid>
-            </Frame>
-            <Frame Grid.Row="4" Style="{StaticResource framestyle}" Padding="10">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Button_Clicked_2"/>
-                </Frame.GestureRecognizers>
-                <Grid>
-                <Label Text="سخت" Style="{StaticResource labelstyle}"/>
-                    <Image Source="But.png" HorizontalOptions="End" Margin="5"/>
-                </Grid>
-            </Frame>
-            <Button Grid.Row="5" Text="قوانین بازی و راهنمایی" VerticalOptions="End" HorizontalOptions="Start" Clicked="Button_Clicked_3"/>
-        </Grid>
-    </ContentPage.Content>
-</ContentPage>
+    </TabbedPage.Resources>
+    <TabbedPage.Children>
+        <ContentPage Title="Game">
+            <Grid BackgroundColor="#c1ddff" x:Name="Content">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="1.2*" />
+                    <RowDefinition Height="1.2*" />
+                    <RowDefinition Height="1.2*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Image Source="butgif.gif" IsAnimationPlaying="true" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Grid.Row="1" Text="درجه سختی:" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="30" FontAttributes="Bold" TextColor="White" />
+                <sharpnado:MaterialFrame Grid.Row="2" Style="{StaticResource framestyle}" Padding="10" x:Name="r3" Shadow:ShadowEffect.Color="Black" Shadow:ShadowEffect.Radius="10" Shadow:ShadowEffect.OffsetX="0" Shadow:ShadowEffect.OffsetY="5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Button_Clicked"/>
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Label Text="آسان" Style="{StaticResource labelstyle}"/>
+                        <Image Source="But.png" HorizontalOptions="End" Margin="5"/>
+                    </Grid>
+                </sharpnado:MaterialFrame>
+                <sharpnado:MaterialFrame Grid.Row="3" Style="{StaticResource framestyle}" Padding="10" x:Name="r2" Shadow:ShadowEffect.Color="Black" Shadow:ShadowEffect.Radius="10" Shadow:ShadowEffect.OffsetX="0" Shadow:ShadowEffect.OffsetY="5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Button_Clicked_1"/>
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Label Text="متوسط" Style="{StaticResource labelstyle}"/>
+                        <Image Source="But.png" HorizontalOptions="End" Margin="5" />
+                    </Grid>
+                </sharpnado:MaterialFrame>
+                <sharpnado:MaterialFrame Grid.Row="4" Style="{StaticResource framestyle}" Padding="10" x:Name="r" Shadow:ShadowEffect.Color="Black" Shadow:ShadowEffect.Radius="10" Shadow:ShadowEffect.OffsetX="0" Shadow:ShadowEffect.OffsetY="5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Button_Clicked_2"/>
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Label Text="سخت" Style="{StaticResource labelstyle}"/>
+                        <Image Source="But.png" HorizontalOptions="End" Margin="5"/>
+                    </Grid>
+                </sharpnado:MaterialFrame>
+                <Button Grid.Row="5" Text="قوانین بازی و راهنمایی" VerticalOptions="End" HorizontalOptions="Start" Clicked="Button_Clicked_3" Shadow:ShadowEffect.Color="Black" Shadow:ShadowEffect.Radius="20" Shadow:ShadowEffect.OffsetX="0" Shadow:ShadowEffect.OffsetY="5" BorderColor="White" BackgroundColor="PeachPuff" BorderWidth="2" CornerRadius="10" Margin="5,0,0,20" />
+            </Grid>
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>

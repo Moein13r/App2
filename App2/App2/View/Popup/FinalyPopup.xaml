@@ -27,7 +27,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Text="خوش آمدی به بازی جهت پروانه با هر بار ظاهر شدن فلش  جایگاه پروانه به اندازه یک خانه تغییر میکند وظیفه شما حدس زدن آخرین جایگاه پروانه پس از پاین یافتن حرکات پروانه هست" x:Name="resualt" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
-                <Button Clicked="Button_Clicked" Text="شروع مجدد" Grid.Row="2" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,10" BackgroundColor="Tomato" FontAttributes="Bold" BorderColor="White"/>
+                <Button Clicked="Button_Clicked" Text="صفحه اصلی" Grid.Row="2" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,10" BackgroundColor="Tomato" FontAttributes="Bold" BorderColor="White"/>
             </Grid>
         </Frame>
     </ContentPage.Content>
