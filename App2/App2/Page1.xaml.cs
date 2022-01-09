@@ -9,12 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace App2
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : TabbedPage
+    public partial class Page1 : Xamarin.Forms.TabbedPage
     {
         Animation animatee;
         double dwidth = DeviceDisplay.MainDisplayInfo.Width;
@@ -22,7 +24,9 @@ namespace App2
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasBackButton(this, false);
         }
+        
         protected override void OnCurrentPageChanged()
         {
             base.OnCurrentPageChanged();

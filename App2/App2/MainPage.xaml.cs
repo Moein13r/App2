@@ -12,6 +12,7 @@ using App2.Views.Popup;
 using App2.View.Popup;
 using App2.View;
 using Xamarin.Essentials;
+using App2.Database;
 
 namespace App2
 {
@@ -200,8 +201,17 @@ namespace App2
             gameplay.stage++;
             cans.Add(index);
             uans.Add(n2);
+            if (int.Parse(n.CommandParameter.ToString())==n2)
+            {
+                record.score += 70;
+                record.state++;
+            }
             if (gameplay.stage==5)
             {
+                GameDatabse fd;
+                fd = await GameDatabse.Instnace;
+                record.name = "beemaze";
+                await fd.SaveItem(record);
                 await PopupNavigation.Instance.PushAsync(new Result(cans,uans));
                 return;
             }
@@ -212,6 +222,7 @@ namespace App2
                 await PopupNavigation.Instance.PushAsync(popup);
             }
         }
+        Score record = new Score {score=0,state=0 };
         private async void popup_onClose(Object s, EventArgs e)
         {
             clear_value();

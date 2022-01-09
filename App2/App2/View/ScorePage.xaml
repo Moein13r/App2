@@ -15,30 +15,29 @@
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-            <ListView Grid.Row="1" x:Name="Listtop" BackgroundColor="#1f9fdf" Margin="10,0" IsPullToRefreshEnabled="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding name}"/>
-                                <ListView>
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <ViewCell>
-                                                <StackLayout>
-                                                    <Label TextColor="AliceBlue" Text="{Binding state}"/>
-                                                    <Label TextColor="AliceBlue" Text="{Binding core}"/>
-                                                </StackLayout>
-                                            </ViewCell>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Grid Grid.Row="0" x:Name="CircleMaze" >
+            <Frame Grid.RowSpan="3" BackgroundColor="IndianRed" xct:ShadowEffect.Color="Black" TranslationY="-90" CornerRadius="50" Margin="0">
+            </Frame>
+            <Frame xct:ShadowEffect.Color="Black" Grid.Row="1" BackgroundColor="Orange" Padding="8" Margin="10" CornerRadius="10">
+                <ListView x:Name="Listtop" BackgroundColor="White" IsPullToRefreshEnabled="True" IsEnabled="False">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="-1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" HorizontalOptions="Center" Grid.Column="0" TextColor="Orange" Text="Best State"/>
+                                    <Label Grid.Row="0" HorizontalOptions="Center" Grid.Column="1" TextColor="Orange" Text="Best Score"/>
+                                    <Label Grid.Row="1" HorizontalTextAlignment="Center" Grid.Column="0" TextColor="Black" Text="{Binding state}"/>
+                                    <Label Grid.Row="1" HorizontalTextAlignment="Center" Grid.Column="1" TextColor="Black" Text="{Binding score}"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+            <Grid Grid.Row="0" x:Name="CircleMaze" HorizontalOptions="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>

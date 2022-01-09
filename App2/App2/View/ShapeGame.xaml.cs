@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App2.Database;
+using App2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -86,6 +88,11 @@ namespace App2.View
             }
             else
             {
+                GameDatabse f = await GameDatabse.Instnace;
+                record.score = Score;
+                record.state = CompletedStage;
+                record.name = "ShapeGame";
+                await f.SaveItem(record);
                 Create_Board(5, 4);
                 Board.IsEnabled = false;
                 show_resualt();
@@ -94,6 +101,7 @@ namespace App2.View
                 await Navigation.PopToRootAsync();
             }
         }
+        Score record=new Score();
         private void show_resualt()
         {
             for (int i = 0; i < 5; i++)

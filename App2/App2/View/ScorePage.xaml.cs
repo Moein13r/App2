@@ -20,6 +20,7 @@ namespace App2.View
         public ScorePage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             game = new Score
             {
                 name = "ButterFly"
@@ -40,11 +41,10 @@ namespace App2.View
         {
             base.OnAppearing();
             db = await Database.GameDatabse.Instnace;
-            //var record = await db.GetBestScore(game.name);
-            List<Score> f = new List<Score> { new Score { state = 5,name="test" }, new Score { state = 1, name = "test1" }, new Score { state = 10, name = "test2" } };
-            Listtop.ItemsSource = f;
-            //game.state = record.Count > 0 ? record[0].state : 0;
-            //game.score = record.Count > 0 ? record[0].score : 0;
+            var record = await db.GetBestScore(game.name);
+            record.Add(new Score { score = 800, state = 4 });
+            record.Add(new Score { score = 1000, state = 5 });
+            Listtop.ItemsSource = record;
             base.OnAppearing();
             for (int i = 0; i < 5; i++)
             {
@@ -55,12 +55,12 @@ namespace App2.View
         Ellipse[] circles = new Ellipse[5];
         private void Animatee(int i)
         {
-                Animation f = new Animation(v=>circles[i].TranslationY=v,1,50,Easing.Linear);
-                Animation f1 = new Animation(v=>circles[i].TranslationY=v,50,1,Easing.Linear);
-                Animation parent = new Animation();
-                parent.Add(0,0.5,f);
-                parent.Add(0.5,1,f1);
-                parent.Commit(circles[i],"Linear",20,1000);
+            Animation f = new Animation(v => circles[i].TranslationY = v, 1, 50, Easing.Linear);
+            Animation f1 = new Animation(v => circles[i].TranslationY = v, 50, 1, Easing.Linear);
+            Animation parent = new Animation();
+            parent.Add(0, 0.5, f);
+            parent.Add(0.5, 1, f1);
+            parent.Commit(circles[i], "Linear", 20, 1000);
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
