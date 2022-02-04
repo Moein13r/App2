@@ -2,7 +2,7 @@
 
 How to add inner shadow nad sutom outer shadow in xamrin
 
-* To see Select Finally_re branch
+* To see Select FinallyEdit branch
 
 * For This yout havet make a custom control
 
