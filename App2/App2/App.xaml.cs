@@ -12,7 +12,7 @@ namespace App2
         public App()
         {
             InitializeComponent();
-            NavigationPage navi = new NavigationPage(new GameListPage());
+            NavigationPage navi = new NavigationPage(new TestPage());
             MainPage = navi;
         }
 
