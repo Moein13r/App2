@@ -4,13 +4,13 @@ How to add inner shadow nad sutom outer shadow in xamrin
 
 * To see Select FinallyEdit branch
 
-* For This yout havet make a custom control
+* For This yout have to make a custom control
 
-* first create a Class With Public Accessbility int Pcl
+* first create a Class With Public Accessbility int Pcl and inherit it from BoxView
 
   and then Create A class In Android Preject And Inherit it From BoxView Renderer
 
-* In The Step Tou Create A Custom Control
+* In This Step You Create A Custom Control
 
 * Next Step Is Edits Yout Want To add To Your Custom Control
 
