@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:kit="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:App2.Controls"
+             x:Class="App2.TestPage"                          
+             >
+    <ContentPage.Content>
+        <StackLayout  >
+            <controls:CustomBoxView shadow="10,10"  BackgroundColor="Wheat"  BorderRadius="0" StrokeThickness="30" Color="Green" Stroke="White" WidthRequest="300" HeightRequest="300" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+            </controls:CustomBoxView>
+            <controls:CustomBoxView StrokeThickness="10" Stroke="Green"  Color="Black" BackgroundColor="BlanchedAlmond" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+            </controls:CustomBoxView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
